@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qadsiah Academy - Abqaiq Summer Clinic</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #050507;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Enforced 20" Width x 36" High Aspect Ratio Layout */
+        .ad-screen {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            max-width: 100%;
+            max-height: 100%;
+            background: radial-gradient(circle at 50% 30%, #2a1215 0%, #07070a 70%);
+            border: 8px solid #de1f26;
+            padding: 5vh 5vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.9);
+        }
+
+        /* Subtle Corner Borders for Athletic Premium Look */
+        .ad-screen::before {
+            content: '';
+            position: absolute;
+            top: 15px; left: 15px; right: 15px; bottom: 15px;
+            border: 2px solid rgba(255, 200, 0, 0.3);
+            pointer-events: none;
+        }
+
+        /* Header Branding */
+        .header-section {
+            width: 100%;
+        }
+
+        .brand-sub {
+            font-size: 2.8vw;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.4em;
+            color: #ffc800;
+            margin-bottom: 0.5vh;
+        }
+
+        .brand-main {
+            font-size: 8vw;
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            color: #ffffff;
+            letter-spacing: -0.02em;
+        }
+
+        .brand-main span {
+            color: #de1f26;
+            display: block;
+            font-size: 9.5vw;
+        }
+
+        .alert-badge {
+            display: inline-block;
+            background: linear-gradient(90deg, #de1f26 0%, #a31116 100%);
+            color: #ffffff;
+            font-size: 3vw;
+            font-weight: 800;
+            padding: 1vh 4vw;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 2.5vh;
+            box-shadow: 0 4px 15px rgba(222, 31, 38, 0.5);
+        }
+
+        /* Middle Logistics Information Panel */
+        .info-panel {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border-left: 6px solid #ffc800;
+            border-right: 6px solid #de1f26;
+            padding: 2.5vh 3vw;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        .info-row {
+            margin-bottom: 2vh;
+        }
+
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-title {
+            font-size: 2.2vw;
+            text-transform: uppercase;
+            color: #ffc800;
+            letter-spacing: 0.15em;
+            font-weight: 600;
+            margin-bottom: 0.3vh;
+        }
+
+        .info-detail {
+            font-size: 4vw;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        /* Detailed Schedule Breakdown Grid */
+        .schedule-grid {
+            display: flex;
+            width: 100%;
+            gap: 3vw;
+        }
+
+        .week-box {
+            flex: 1;
+            background: rgba(20, 20, 25, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 2vh 2vw;
+        }
+
+        .w-title-1 {
+            color: #de1f26;
+            font-size: 3.2vw;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1.5vh;
+            border-bottom: 2px solid rgba(222, 31, 38, 0.3);
+            padding-bottom: 0.5vh;
+        }
+
+        .w-title-2 {
+            color: #ffc800;
+            font-size: 3.2vw;
+            font-weight: 800;
+            text-transform: uppercase;
+            margin-bottom: 1.5vh;
+            border-bottom: 2px solid rgba(255, 200, 0, 0.3);
+            padding-bottom: 0.5vh;
+        }
+
+        .date-text {
+            font-size: 2.4vw;
+            font-weight: 600;
+            margin-bottom: 1vh;
+            color: #e5e5ea;
+        }
+
+        .date-text:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Footer Call to Action with Live Functional QR Code */
+        .cta-footer {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .qr-holder {
+            background-color: #ffffff;
+            padding: 1.8vh;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            margin-bottom: 1.8vh;
+            display: inline-block;
+        }
+
+        .qr-img {
+            width: 26vw;
+            height: 26vw;
+            max-width: 200px;
+            max-height: 200px;
+            display: block;
+        }
+
+        .cta-main-text {
+            font-size: 3.2vw;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: #ffc800;
+            margin-bottom: 0.3vh;
+        }
+
+        .cta-url {
+            font-size: 2vw;
+            color: #9a9a12;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ad-screen">
+        
+        <div class="header-section">
+            <p class="brand-sub">Qadsiah Academy</p>
+            <h1 class="brand-main">Aramco Abqaiq<span>Summer Clinic</span></h1>
+            <div class="alert-badge">Starts Tomorrow!</div>
+        </div>
+
+        <div class="info-panel">
+            <div class="info-row">
+                <p class="info-title">Training Schedule & Time</p>
+                <p class="info-detail">Sun, Tue, Thu | 5:00 PM – 6:30 PM</p>
+            </div>
+            <div class="info-row">
+                <p class="info-title">Age Groups (Birth Years)</p>
+                <p class="info-detail">2015 – 2021 &nbsp;&bull;&nbsp; 2010 – 2016</p>
+            </div>
+        </div>
+
+        <div class="schedule-grid">
+            <div class="week-box">
+                <h3 class="w-title-1">Week 1</h3>
+                <p class="date-text">Sun | June 28</p>
+                <p class="date-text">Tue | June 30</p>
+                <p class="date-text">Thu | July 2</p>
+            </div>
+            
+            <div class="week-box">
+                <h3 class="w-title-2">Week 2</h3>
+                <p class="date-text">Sun | July 5</p>
+                <p class="date-text">Tue | July 7</p>
+                <p class="date-text">Thu | July 9</p>
+            </div>
+        </div>
+
+        <div class="cta-footer">
+            <div class="qr-holder">
+                <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https%3A%2F%2Falqadsiahac.com%2Fmerchandise%2Fabqaiq-summer" alt="Registration QR Code">
+            </div>
+            <p class="cta-main-text">Scan Code to Register</p>
+            <p class="cta-url">alqadsiahac.com/merchandise/abqaiq-summer</p>
+        </div>
+
+    </div>
+
+</body>
+</html>
